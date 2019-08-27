@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 
-public class Que_Ans{
+public class feature1{
     static ArrayList<ArrayList<String>> getMatchesPlayedPerYear(ArrayList<ArrayList<String>> matchesData){
 
         ArrayList<ArrayList<String>> result1 = new ArrayList<ArrayList<String>>();
