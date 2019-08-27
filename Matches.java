@@ -5,11 +5,15 @@ import java.util.ArrayList;
 
 public class Matches {
     public static ArrayList<ArrayList<String>> CSVMatches(String path) {
+       
+        String splitBy = ",";
         String csvFile = path;
         String line = "";
-        String splitBy = ",";
+        
         ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
+        
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            
             while ((line = br.readLine()) != null) {
                 String[] matches_data = line.split(splitBy);
                 ArrayList<String> data = new ArrayList<String>();
@@ -40,6 +44,9 @@ public class Matches {
                 }
                 list.add(data);
             }
+            
+            //System.out.println();
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
