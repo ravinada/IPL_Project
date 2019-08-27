@@ -5,15 +5,12 @@ import java.util.ArrayList;
 
 public class Deliveries {
     public static ArrayList<ArrayList<String>> CSVDeliveries(String path) {
-
+        String csvFile = path;
         String line = "";
         String splitBy = ",";
-        String csvFile = path;
-
+        int flag = 0;
         ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
-
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-
             while ((line = br.readLine()) != null) {
                 String[] delivery_data = line.split(splitBy);
                 ArrayList<String> data = new ArrayList<String>();
@@ -35,15 +32,15 @@ public class Deliveries {
                 data.add(delivery_data[15]);
                 data.add(delivery_data[16]);
                 data.add(delivery_data[17]);
-                if(delivery_data.length == 21 ) {
+                if (delivery_data.length > 18)
                     data.add(delivery_data[18]);
-                }
-                if(delivery_data.length == 21 ) {
+
+                if (delivery_data.length > 19)
                     data.add(delivery_data[19]);
-                }
-                if(delivery_data.length == 21 ) {
+
+                if (delivery_data.length > 20)
                     data.add(delivery_data[20]);
-                }
+
                 list.add(data);
             }
         } catch (IOException e) {
