@@ -14,24 +14,9 @@ public class Deliveries {
             while ((line = br.readLine()) != null) {
                 String[] delivery_data = line.split(splitBy);
                 ArrayList<String> data = new ArrayList<String>();
-                data.add(delivery_data[0]);
-                data.add(delivery_data[1]);
-                data.add(delivery_data[2]);
-                data.add(delivery_data[3]);
-                data.add(delivery_data[4]);
-                data.add(delivery_data[5]);
-                data.add(delivery_data[6]);
-                data.add(delivery_data[7]);
-                data.add(delivery_data[8]);
-                data.add(delivery_data[9]);
-                data.add(delivery_data[10]);
-                data.add(delivery_data[11]);
-                data.add(delivery_data[12]);
-                data.add(delivery_data[13]);
-                data.add(delivery_data[14]);
-                data.add(delivery_data[15]);
-                data.add(delivery_data[16]);
-                data.add(delivery_data[17]);
+                for(int i=0;i<=17;i++)
+                data.add(delivery_data[i]);
+
                 if (delivery_data.length > 18)
                     data.add(delivery_data[18]);
 
@@ -46,7 +31,7 @@ public class Deliveries {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        list.remove(0);
+
         return list;
     }
 }
