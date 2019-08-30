@@ -1,0 +1,48 @@
+Project :- IPL Dataset
+
+1) Number of matches played per year of all the years in IPL
+
+select season,count(*) 
+from matches 
+group by season;
+
+///////
+
+2) Number of matches won of all teams over all the years of IPL
+
+select m.winner,count(*) 
+from matches
+group by m.winner;
+
+/////////
+
+3) For the year 2016 get the extra runs conceded per team
+
+select sum(d.extra_runs) as Extra_Run d.bowling_team
+from matches m, deliveries d 
+where m.id=d.match_id and m.season = 2016
+group by d.bowling_team; 
+
+///////
+
+4) For the year 2015 get the top economical bowlers
+
+select d.bowler,(SUM(d.bye_runs + d.wide_runs + d.noball_runs + d.batsman_runs)*6)/count(d.ball) as "Economy"
+from deliveries d , matches m
+where m.id = d.match_id and m.season=2015
+order by economy;
+
+////////
+
+5) Top 5 most number of catches in entire IPL.
+
+select d.fielder, count(d.match_id) as "Catches" 
+from deliveries d 
+where dismissal_kind = "caught" 
+group by d.fielder 
+order by count(d.match_id) desc limit 5; 
+
+
+
+
+
